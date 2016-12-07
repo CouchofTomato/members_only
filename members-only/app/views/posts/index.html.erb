@@ -1,0 +1,15 @@
+<% if logged_in? %>
+  <%= link_to 'Create a new post', new_post_path %>
+<% end %>
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= post.content %>
+    </li>
+    <% if logged_in? %>
+    <li>
+      <%= post.user.name %>
+    </li>
+    <% end %>
+  <% end %>
+</ul>

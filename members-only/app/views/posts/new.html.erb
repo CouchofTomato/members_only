@@ -1,0 +1,9 @@
+<h1>Create a new post</h1>
+<%= form_for @post do |f| %>
+  <div>
+    <p><%= f.label :content %></p>
+    <%= f.text_area :content %>
+  </div>
+  <%= submit_tag %>
+<% end %>
+  

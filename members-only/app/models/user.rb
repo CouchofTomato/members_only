@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
   
+  has_many :posts
+  
   before_create :create_user_token
   
   validates :name, presence: true, length: { maximum: 50 }
@@ -16,8 +18,6 @@ class User < ApplicationRecord
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
-  
-  private
   
   def create_user_token
     self.remember_digest = User.digest(User.new_remember_token)
